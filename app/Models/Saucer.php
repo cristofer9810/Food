@@ -9,9 +9,17 @@ class Saucer extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
+
     public function taste(){
 
         return $this->belongsTo(Taste::class);
 
+    }
+
+
+    public function image(){
+        return $this->morphOne(Image::class, 'imageable');
     }
 }

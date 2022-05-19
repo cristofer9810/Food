@@ -42,9 +42,9 @@ class SaucerRequest extends FormRequest
                 'taste_id' => 'required',
                 'description' => 'required|min:3|max:500',
                 'price' => 'required',
-                'small' => 'required|number',
-                'medium' => 'required|number',
-                'large' => 'required|number'
+                'small' => 'required|numeric',
+                'medium' => 'required|numeric',
+                'large' => 'required|numeric'
 
             ]);
         }

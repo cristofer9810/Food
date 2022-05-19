@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Saucer;
 use App\Models\Taste;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PlatilloController extends Controller
 {
@@ -38,6 +39,16 @@ class PlatilloController extends Controller
     {
         $saucer =  Saucer::create($request->all());
 
+        if ($request->file('file')) {
+            $url = Storage::put('public/posts', $request->file('file'));
+
+            $saucer->image()->create([
+                'url' => $url
+            ]);
+        }
+
+        return redirect()->route('admin.platillos.edit', $saucer)->with('info', 'El platillo se guardo con exito');
+
     }
 
     /**
@@ -57,9 +68,12 @@ class PlatilloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Saucer $saucer)
     {
-        //
+
+        $tastes = Taste::pluck('name', 'id');
+
+        return view('admin.platillos.edit', compact('saucer', 'tastes'));
     }
 
     /**
@@ -69,7 +83,7 @@ class PlatilloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SaucerRequest $request,Saucer  $saucer)
     {
         //
     }

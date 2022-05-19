@@ -22,7 +22,6 @@ return new class extends Migration
             $table->integer('small');
             $table->integer('medium');
             $table->integer('large');
-            $table->string('image');
 
             $table->enum('status', [1, 2])->default(1);
 

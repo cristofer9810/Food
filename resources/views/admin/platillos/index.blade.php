@@ -7,8 +7,14 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel platillo.</p>
 
+    @if (session('info'))
+        <div class="alert alert-success">
+            <strong>{{ session('info') }}</strong>
+        </div>
+    @endif
+
+    @livewire('admin.posts-index')
 @stop
 
 @section('css')
@@ -16,7 +22,5 @@
 @stop
 
 @section('js')
-<script>
-
-</script>
+    <script></script>
 @stop
