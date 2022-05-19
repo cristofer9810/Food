@@ -47,7 +47,7 @@ class BlogController extends Controller
         $date = Carbon::now();
         //pasamos esta variable date a la vista con el metodo compact
 
-        $author = Post::whereId(1)->with('user')->first();
+        $authors = Post::whereId(1)->with('user')->first();
 
         $categories = Category::all();
 
@@ -61,7 +61,7 @@ class BlogController extends Controller
                            ->get();
 
 
-        return view('food.blog-details', compact('post', 'similares', 'date', 'author', 'categories', 'tags'));
+        return view('food.blog-details', compact('post', 'similares', 'date', 'authors', 'categories', 'tags'));
 
     }
 

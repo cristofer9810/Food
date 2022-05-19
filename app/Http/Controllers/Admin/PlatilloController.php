@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SaucerRequest;
 use App\Models\Category;
+use App\Models\Saucer;
+use App\Models\Taste;
 use Illuminate\Http\Request;
 
 class PlatilloController extends Controller
@@ -25,20 +28,16 @@ class PlatilloController extends Controller
      */
     public function create()
     {
-        $categories = Category::pluck('name', 'id');
+        $tastes = Taste::pluck('name', 'id');
 
-        return view('admin.platillos.create', compact('categories'));
+        return view('admin.platillos.create', compact('tastes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(SaucerRequest $request)
     {
-        //
+        $saucer =  Saucer::create($request->all());
+
     }
 
     /**

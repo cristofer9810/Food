@@ -53,8 +53,8 @@
                                     @if ($post->image)
                                         <img id="picture" style="height: 100px; " src="{{ Storage::url($post->image->url) }}">
                                     @else
-                                        <img class="object-cover object-center w-full h-80"
-                                            src="https://cdn.pixabay.com/photo/2022/02/11/21/41/cheese-7008088_960_720.jpg">
+                                        <img class="object-cover object-center w-full" style="width: 100px;"
+                                            src="https://cdn.pixabay.com/photo/2022/02/11/21/41/cheese-7008088_960_720.jpg" >
                                     @endif
 
                                 </div>
