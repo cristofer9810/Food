@@ -91,7 +91,7 @@
 
         <div class="image-wrapper">
             @isset($saucer->image)
-                <img id="picture" src="{{ Storage::url($image) }}">
+                <img id="picture" src="{{ Storage::url($saucer->image->url) }}">
             @else
                 <img id="picture" src="https://cdn.pixabay.com/photo/2022/02/11/21/41/cheese-7008088_960_720.jpg">
             @endisset
@@ -127,6 +127,6 @@
 
 
 <p class="text-center">
-    <a href="{{ route('admin.platillos.index') }}"
+    <a href="{{ route('admin.saucers.index') }}"
         style="margin-right: 20px; padding-right: 20px;padding-left: 20px;padding-bottom: 8px;"
         class="mx-1.5 btn btn-warning"><i class="px-3 fas fa-backspace"></i>Regresar</a>

@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
-use App\Http\Controllers\Admin\PlatilloController;
+use App\Http\Controllers\Admin\SaucerController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
@@ -21,4 +21,4 @@ Route::resource('roles', RoleController::class)->names('admin.roles');
 
 Route::resource('users', UserController::class)->only(['index', 'edit', 'update'])->names('admin.users');
 
-Route::resource('platillos', PlatilloController::class)->names('admin.platillos');
+Route::resource('saucers', SaucerController::class)->names('admin.saucers');

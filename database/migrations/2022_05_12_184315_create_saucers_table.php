@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->text('description')->nullable();
-            $table->integer('price');
-            $table->integer('small');
-            $table->integer('medium');
-            $table->integer('large');
+            $table->decimal('price');
+            $table->decimal('small')->nullable();
+            $table->decimal('medium')->nullable();
+            $table->decimal('large')->nullable();
 
             $table->enum('status', [1, 2])->default(1);
 

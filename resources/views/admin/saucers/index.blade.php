@@ -3,18 +3,19 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
-@stop
-
-@section('content')
-
+    <h1>Listado de platillos</h1>
     @if (session('info'))
         <div class="alert alert-success">
             <strong>{{ session('info') }}</strong>
         </div>
     @endif
+@stop
 
-    @livewire('admin.posts-index')
+@section('content')
+
+
+
+    @livewire('admin.saucers-index')
 @stop
 
 @section('css')

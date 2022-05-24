@@ -17,13 +17,13 @@
     @endif
 
     <div class="card-body">
-        {!! Form::open(['route' => 'admin.platillos.store', 'autocomplete' => 'off', 'files' => true]) !!}
+        {!! Form::open(['route' => 'admin.saucers.store', 'autocomplete' => 'off', 'files' => true]) !!}
 
         {{-- corrigue el error de user_id --}}
        {{--  {!! Form::hidden('user_id', auth()->user()->id) !!} --}}
 
 
-        @include('admin.platillos.partials.form')
+        @include('admin.saucers.partials.form')
 
 
         {!! Form::submit('crear platillo', ['class' => 'btn btn-primary']) !!}

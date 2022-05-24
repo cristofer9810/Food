@@ -10,7 +10,7 @@ use App\Models\Taste;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class PlatilloController extends Controller
+class SaucerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class PlatilloController extends Controller
      */
     public function index()
     {
-        return view('admin.platillos.index');
+        return view('admin.saucers.index');
     }
 
     /**
@@ -31,7 +31,7 @@ class PlatilloController extends Controller
     {
         $tastes = Taste::pluck('name', 'id');
 
-        return view('admin.platillos.create', compact('tastes'));
+        return view('admin.saucers.create', compact('tastes'));
     }
 
 
@@ -47,7 +47,7 @@ class PlatilloController extends Controller
             ]);
         }
 
-        return redirect()->route('admin.platillos.edit', $saucer)->with('info', 'El platillo se guardo con exito');
+        return redirect()->route('admin.saucers.edit', $saucer)->with('info', 'El platillo se guardo con exito');
 
     }
 
@@ -73,7 +73,7 @@ class PlatilloController extends Controller
 
         $tastes = Taste::pluck('name', 'id');
 
-        return view('admin.platillos.edit', compact('saucer', 'tastes'));
+        return view('admin.saucers.edit', compact('saucer', 'tastes'));
     }
 
     /**

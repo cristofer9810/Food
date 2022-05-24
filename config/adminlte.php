@@ -301,12 +301,12 @@ return [
         [
             'text'       => 'Crear Platillo',
             'icon_color' => 'yellow',
-            'route'        => 'admin.platillos.create',
+            'route'      => 'admin.saucers.create',
         ],
         [
             'text'       => 'Listado de Platillos',
             'icon_color' => 'cyan',
-            'route'        => 'admin.platillos.index',
+            'route'      => 'admin.saucers.index',
         ],
     ],
 
