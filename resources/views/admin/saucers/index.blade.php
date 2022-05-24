@@ -13,9 +13,8 @@
 
 @section('content')
 
-
-
     @livewire('admin.saucers-index')
+
 @stop
 
 @section('css')

@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Saucer;
 use App\Models\Taste;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 
 class SaucerController extends Controller
@@ -85,7 +86,31 @@ class SaucerController extends Controller
      */
     public function update(SaucerRequest $request,Saucer  $saucer)
     {
-        //
+        $saucer->update($request->all());
+
+        if ($request->file('file')) {
+            $url = Storage::put('public/posts', $request->file('file'));
+
+            if ($saucer->image) {
+                Storage::delete($saucer->image->url);
+
+                $saucer->image->update([
+                    'url' => $url
+                ]);
+            } else {
+                $saucer->image()->create([
+                    'url' => $url
+                ]);
+            }
+        }
+
+        if ($request->tags) {
+            $saucer->tags()->sync($request->tags);
+        }
+
+        Cache::flush();
+
+        return redirect()->route('admin.saucers.edit', $saucer)->with('info', 'El platillo se actualizo con exito');
     }
 
     /**
@@ -94,8 +119,10 @@ class SaucerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Saucer $saucer)
     {
-        //
+        $saucer->delete();
+        Cache::flush();
+        return redirect()->route('admin.saucers.index', $saucer)->with('info', 'El platillo se elimino con exito');
     }
 }
