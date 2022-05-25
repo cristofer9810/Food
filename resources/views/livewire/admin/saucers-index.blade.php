@@ -93,7 +93,7 @@
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
-                                            <div class="modal-body">Quieres eliminar esta etiqueta?
+                                            <div class="modal-body">Quieres eliminar este Platillo?
                                                 <b>{{ $saucer->name }}</b>?</div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn gray btn-outline-secondary"

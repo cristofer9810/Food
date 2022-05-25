@@ -294,9 +294,9 @@ return [
 
         ['header' => 'Modulo De Carta'],
         [
-            'text'       => 'otro boton',
+            'text'       => 'ordenes de usario',
             'icon_color' => 'red',
-            'url'        => '#',
+            'route'        => 'admin.order.index',
         ],
         [
             'text'       => 'Crear Platillo',

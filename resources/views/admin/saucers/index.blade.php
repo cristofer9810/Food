@@ -3,6 +3,8 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
+
+<a class="float-right btn btn-secondary " href="{{ route('admin.saucers.create') }}">Nuevo Platillo</a>
     <h1>Listado de platillos</h1>
     @if (session('info'))
         <div class="alert alert-success">

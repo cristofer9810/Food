@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserOrderController;
 
 Route::get('', [HomeController::class, 'index'])->name('admin.home');
 
@@ -22,3 +23,7 @@ Route::resource('roles', RoleController::class)->names('admin.roles');
 Route::resource('users', UserController::class)->only(['index', 'edit', 'update'])->names('admin.users');
 
 Route::resource('saucers', SaucerController::class)->names('admin.saucers');
+
+Route::resource('UserOrder', UserOrderController::class)->names('admin.order');
+
+Route::post('/admin/order/{id}/status', [UserOrderController::class, 'changeStatus'])->name('admin.order.status');
