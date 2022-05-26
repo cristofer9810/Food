@@ -31,6 +31,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('menus', [MenuControlller::class, 'index'])->name('food.menu');
 
+Route::get('menus-details/{saucer}', [MenuControlller::class, 'show'])->name('food.menu-details');
+
 Route::get('abouts', [AboutControlller::class, 'index'])->name('food.about');
 
 Route::get('reservation', [ReservationControlller::class, 'index'])->name('food.reservation');

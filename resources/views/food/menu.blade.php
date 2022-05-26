@@ -40,10 +40,55 @@
                 </div>
             </div>
 
-            <h1 class="container">aqui el menu de los especiales</h1>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="special-menu text-center">
+                        <div class="button-group filter-button-group">
+                            <button class="active" data-filter="*">Todo</button>
+                            @foreach ($tastes as $taste)
+                                <button data-filter=".{{$taste->name}}">{{ $taste->name }}</button>
+                            @endforeach
+                            {{-- la variable data-filter esta en el primer div especificando el grupo al que pertenecen, esto hace que se ordenen en nuestro front
+                            cambien segun lo escogido --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row special-list">
+
+
+                {{-- aqui esta la variable a cambiar cuando ↓↓↓↓↓ tenga hecho la BD de los pedidos a pedir XD --}}
+
+                @forelse ($saucers as $saucer)
+                    <div class="col-lg-4 col-md-6 special-grid {{$saucer->taste->name}}">
+                        <div class="gallery-single fix">
+                            @if ($saucer->image)
+                                <img id="picture" class="img-fluid" alt="Image"
+                                    src="{{ Storage::url($saucer->image->url) }}">
+                            @else
+                                <img class="img-fluid" alt="Image"
+                                    src="https://cdn.pixabay.com/photo/2022/02/11/21/41/cheese-7008088_960_720.jpg">
+                            @endif
+                            <div class="why-text">
+                                <h4>{{ $saucer->name }}</h4>
+                                <p>{!! $saucer->description !!}</p>
+                                <h5>${{ $saucer->price }}</h5>
+                                <a href="{{ route('food.menu-details', $saucer->id) }}">
+                                    <button type="button" class="btn btn-primary mb-1 btn-sm">Comprar</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <p>No hay platillos en la bodega</p>
+                @endforelse
+
+
 
             </div>
         </div>
+    </div>
     </div>
     <!-- End Menu -->
 
