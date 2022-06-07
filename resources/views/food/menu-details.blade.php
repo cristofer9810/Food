@@ -31,6 +31,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="heading-title text-center">
+                        @if (session('info'))
+                            <div class="alert alert-success">
+                                <strong>{{ session('info') }}</strong>
+                            </div>
+                        @endif
                         <h2>{{ $saucer->name }}</h2>
                         <p>{!! $saucer->description !!}</p>
                     </div>
@@ -53,11 +58,12 @@
                                 {{ $date->format('d/m/Y') }}
                             </div>
                             <div class="inner-blog-detail details-page">
-                                <h3><i class="fa-duotone fa-camera-retro" style="color: #1c7ed6;"></i>{!! $saucer->description !!}</h3>
-                                <h3>precio: ${!! $saucer->price !!}</h3>
-                                <h3>para 4: ${!! $saucer->small !!}</h3>
-                                <h3>para 6: ${!! $saucer->medium !!}</h3>
-                                <h3>para 8: ${!! $saucer->large !!}</h3>
+                                <h3><i class="fa fa-align-justify" aria-hidden="true"></i>
+                                    {!! $saucer->description !!}</h3>
+                                <h3><i class="fa fa-money"></i> Precio: ${!! $saucer->price !!}</h3>
+                                <h3><i class="fa fa-user"></i> Personal : ${!! $saucer->small !!}</h3>
+                                <h3><i class="fa fa-users"></i> Mediano : ${!! $saucer->medium !!}</h3>
+                                <h3><i class="fa fa-users"></i> Familiar: ${!! $saucer->large !!}</h3>
                             </div>
                         </div>
 
@@ -68,7 +74,7 @@
                             <h3>Comments</h3>
                             <div class="comment-item">
                                 <div class="comment-item-left">
-                                    <img src="images/avt-img.jpg" alt="">
+                                    <img src="{{ asset('inicio/images/avt-img.jpg') }}" alt="">
                                 </div>
                                 <div class="comment-item-right">
                                     <div class="pull-left">
@@ -167,68 +173,131 @@
                                     alt="">
                             @endif
                         </div>
+                        @if (session('info'))
+                            <div class="alert alert-success">
+                                <strong>{{ session('info') }}</strong>
+                            </div>
+                        @endif
 
-                        <div class="contact-box">
+                        <div class="contact-box" style="padding: 0px 0px;">
                             <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="heading-title text-center">
-                                            <h2>Contact</h2>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <form id="contactForm">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" id="name" name="name"
-                                                            placeholder="Your Name" required
-                                                            data-error="Please enter your name">
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <input type="text" placeholder="Your Email" id="email"
-                                                            class="form-control" name="name" required
-                                                            data-error="Please enter your email">
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <select class="custom-select d-block form-control" id="guest"
-                                                            required data-error="Please Select Person">
-                                                            <option disabled selected>Please Select Person*</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                        </select>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <textarea class="form-control" id="message" placeholder="Your Message" rows="4" data-error="Write your message"
-                                                            required></textarea>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                    <div class="submit-button text-center">
-                                                        <button class="btn btn-common" id="submit" type="submit">Send
-                                                            Message</button>
-                                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
-                                                        <div class="clearfix"></div>
-                                                    </div>
+                                @if (Auth::check())
+                                    <form action="{{ route('food.menu.store') }}" method="POST">@csrf
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="heading-title text-center">
+                                                    <h2>Pedir</h2>
+                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    </p>
+                                                    <p>Nombre: {{ auth()->user()->name }}</p>
+                                                    <p>Email: {{ auth()->user()->email }}</p>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
-                                </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <form id="contactForm">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <input type="number" placeholder="Numero de telefono"
+                                                                    id="phone" class="form-control" name="phone"
+                                                                    required data-error="Por favor ingresa tu Telefono">
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <select name="small"
+                                                                    class="custom-select d-block form-control"
+                                                                    id="guest">
+                                                                    <option value="0">Cuantas desea:
+                                                                        Personal?
+                                                                    </option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                </select>
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <select name="medium"
+                                                                    class="custom-select d-block form-control"
+                                                                    id="guest">
+                                                                    <option value="0">Cuantas desea:
+                                                                        Mediano?
+                                                                    </option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                </select>
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <select name="large"
+                                                                    class="custom-select d-block form-control"
+                                                                    id="guest">
+                                                                    <option value="0">Cuantas desea:
+                                                                        Familiar?
+                                                                    </option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                </select>
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <input type="hidden" name="saucer_id"
+                                                                    value="{{ $saucer->id }}">
+                                                                <input type="date" placeholder="Fecha"
+                                                                    class="form-control" name="date" required
+                                                                    data-error="Por favor ingresa la Fecha">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <input type="time" placeholder="Hora"
+                                                                    class="form-control" name="time" required
+                                                                    data-error="Por favor ingresa la hora">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <textarea class="form-control" name="body" id="message" placeholder="Escribe un mensaje" rows="4"
+                                                                    data-error="Escribe tu mensaje" required></textarea>
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="submit-button text-center">
+                                                        <button class="btn btn-common" id="submit" type="submit">Crear
+                                                            Orden</button>
+                                                        <div id="msgSubmit" class="h3 text-center hidden">
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </form>
+                                @else
+                                    <p><a href="/login">Para ordenar, registrese o iniciar sesion</a></p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -236,15 +305,7 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
     <!-- End QT -->
-
 
     <!-- End details -->
 

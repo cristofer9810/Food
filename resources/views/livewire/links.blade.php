@@ -15,7 +15,6 @@
     <!-- Site Icons -->
     <link rel="Shortcut Icon" type="image/x-icon" href="{{ asset('favicons/logo.png') }}" />
     <link rel="apple-touch-icon" href="{{ asset(' inicio/images/apple-touch-icon.png ') }}" />
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('inicio/css/bootstrap.min.css') }}" />
     <!-- Site CSS -->

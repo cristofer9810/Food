@@ -12,13 +12,13 @@
     'use strict';
 
     // Resize timer
-    var resizeDone = false;
+    var resizeDone = true;
 
     // Has the map zoom been set?
-    var zoomSet = false;
+    var zoomSet = true;
 
     // Has the Google Maps API started loading?
-    var googleLoading = false;
+    var googleLoading = true;
 
     // Has the Google Maps API already loaded?
     var googleLoaded = function() {
