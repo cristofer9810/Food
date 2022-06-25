@@ -272,21 +272,25 @@ return [
         [
             'text'    => 'Opciones de BLOG',
             'icon'    => 'fas fa-fw fa-share',
+            'can'         => 'admin.users.index',
             'submenu' => [
                 [
                     'text' => 'Lista de post',
                     'route'  => 'admin.posts.index',
                     'icon' => 'fas fa-fw fa-clipboard',
+                    'can' => 'admin.posts.index',
                 ],
                 [
                     'text' => 'Categorias',
                     'route'  => 'admin.categories.index',
                     'icon' => 'fab fa-fw fa-buffer',
+                    'can' => 'admin.categories.index',
                 ],
                 [
                     'text' => 'Tags',
                     'route'  => 'admin.tags.index',
                     'icon' => 'far fa-fw fa-bookmark',
+                    'can' => 'admin.tags.index',
                 ],
             ],
         ],
@@ -296,17 +300,20 @@ return [
         [
             'text'       => 'ordenes de usario',
             'icon_color' => 'red',
-            'route'        => 'admin.order.index',
+            'route'      => 'admin.order.index',
+            'can'        => 'admin.users.index',
         ],
         [
             'text'       => 'Crear Platillo',
             'icon_color' => 'yellow',
             'route'      => 'admin.saucers.create',
+            'can'        => 'admin.users.index',
         ],
         [
             'text'       => 'Listado de Platillos',
             'icon_color' => 'cyan',
             'route'      => 'admin.saucers.index',
+            'can'        => 'admin.users.index',
         ],
     ],
 

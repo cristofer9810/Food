@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutControlller;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\GalleryControlller;
@@ -9,6 +10,7 @@ use App\Http\Controllers\ReservationControlller;
 use App\Http\Controllers\StuffControlller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\UserSettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +27,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+/* Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->name('dashboard'); */
+
+Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
 
 Route::get('menus', [MenuControlller::class, 'index'])->name('food.menu');
 
@@ -52,3 +56,9 @@ Route::get('category/{category}', [DetailsController::class, 'category'])->name(
 Route::get('tag/{tag}', [DetailsController::class, 'tag'])->name('food.tag');
 
 Route::get('contact', [ContactController::class, 'index'])->name('food.contact');
+
+Route::get('map', [UserSettingsController::class, 'index'])->name('map');
+
+Route::get('configure_user_profile', [UserSettingsController::class, 'configure_user_profile'])->name('configure_user_profile')->middleware('auth');
+
+Route::post('change/password', [UserSettingsController::class, 'changePassword'])->name('changePassword');

@@ -88,5 +88,24 @@ class RolSeeder extends Seeder
             'name' => 'admin.posts.destroy',
             'description' => 'Eliminar posts'
         ])->syncRoles([$role1, $role2]);
+
+
+
+        Permission::create([
+            'name' => 'admin.saucers.index',
+            'description' => 'Ver listado de platillos'
+        ])->syncRoles([$role1, $role2]);
+        Permission::create([
+            'name' => 'admin.saucers.create',
+            'description' => 'Crear platillos'
+        ])->syncRoles([$role1, $role2]);
+        Permission::create([
+            'name' => 'admin.saucers.edit',
+            'description' => 'Editar platillos'
+        ])->syncRoles([$role1, $role2]);
+        Permission::create([
+            'name' => 'admin.saucers.destroy',
+            'description' => 'Eliminar platillos'
+        ])->syncRoles([$role1, $role2]);
     }
 }

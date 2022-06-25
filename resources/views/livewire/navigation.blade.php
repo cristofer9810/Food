@@ -69,10 +69,12 @@
                         style="background: #f8f9fa;"><img class="rounded-circle bac-fondo"
                             src="{{ auth()->user()->profile_photo_url }}" alt=""></a>
 
-                    <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                    <div class="dropdown-menu" aria-labelledby="dropdown-a" style="left: -70px;">
 
                         <a href="{{ route('profile.show') }}" class="dropdown-item" role="menuitem" tabindex="-1"
                             id="user-menu-item-0">Tu perfil</a>
+                            <a href="{{ route('dashboard') }}" class="dropdown-item" role="menuitem" tabindex="-1"
+                            id="user-menu-item-0">Panel food</a>
                         <a href="{{ route('admin.home') }}" class="dropdown-item" role="menuitem" tabindex="-1"
                             id="user-menu-item-0">Dashboard</a>
                         <form method="POST" action="{{ route('logout') }}">
