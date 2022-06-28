@@ -440,6 +440,7 @@ button:focus{
     padding: 12px 12px;
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
+    overflow-y: scroll;
 }
 .why-text h4{
 	color: #ffffff;

@@ -263,7 +263,7 @@
     <!-- End Contact info -->
 
     <!-- Start Footer -->
-    @livewire('footer')
+
     <!-- End Footer -->
     @livewire('js')
 </body>

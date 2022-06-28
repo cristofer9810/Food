@@ -13,6 +13,16 @@
     <!-- Start header -->
     <header class="top-navbar">
         @livewire('navigation')
+        <style>
+            .contenedor::-webkit-scrollbar {
+                width: 7px;
+            }
+
+            .contenedor::-webkit-scrollbar-thumb {
+                background: #ffffff;
+                border-radius: 5px;
+            }
+        </style>
     </header>
     <!-- End header -->
 
@@ -46,7 +56,7 @@
                         <div class="button-group filter-button-group">
                             <button class="active" data-filter="*">Todo</button>
                             @foreach ($tastes as $taste)
-                                <button data-filter=".{{$taste->name}}">{{ $taste->name }}</button>
+                                <button data-filter=".{{ $taste->name }}">{{ $taste->name }}</button>
                             @endforeach
                             {{-- la variable data-filter esta en el primer div especificando el grupo al que pertenecen, esto hace que se ordenen en nuestro front
                             cambien segun lo escogido --}}
@@ -61,7 +71,7 @@
                 {{-- aqui esta la variable a cambiar cuando ↓↓↓↓↓ tenga hecho la BD de los pedidos a pedir XD --}}
 
                 @forelse ($saucers as $saucer)
-                    <div class="col-lg-4 col-md-6 special-grid {{$saucer->taste->name}}">
+                    <div class="col-lg-4 col-md-6 special-grid {{ $saucer->taste->name }}">
                         <div class="gallery-single fix">
                             @if ($saucer->image)
                                 <img id="picture" class="img-fluid" alt="Image"
@@ -70,7 +80,7 @@
                                 <img class="img-fluid" alt="Image"
                                     src="https://cdn.pixabay.com/photo/2022/02/11/21/41/cheese-7008088_960_720.jpg">
                             @endif
-                            <div class="why-text">
+                            <div class="why-text contenedor">
                                 <h4>{{ $saucer->name }}</h4>
                                 <p>{!! $saucer->description !!}</p>
                                 <h5>${{ $saucer->price }}</h5>
