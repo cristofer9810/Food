@@ -67,7 +67,7 @@ return [
     'usermenu_enabled' => true,
     'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => true,
+    'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
 
@@ -313,6 +313,12 @@ return [
             'text'       => 'Listado de Platillos',
             'icon_color' => 'cyan',
             'route'      => 'admin.saucers.index',
+            'can'        => 'admin.users.index',
+        ],
+        [
+            'text'       => 'Galeria',
+            'icon_color' => 'green',
+            'route'      => 'admin.views.index',
             'can'        => 'admin.users.index',
         ],
     ],

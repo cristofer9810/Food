@@ -16,9 +16,9 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h3>Contact information</h3>
-                <p class="lead">Ipsum Street, Lorem Tower, MO, Columbia, 508000</p>
-                <p class="lead"><a href="#">+01 2000 800 9999</a></p>
-                <p><a href="#"> info@admin.com</a></p>
+                <p class="lead">diagonal 146 # 136a59</p>
+                <p class="lead"><a href="#">+57 314 265 9038</a></p>
+                <p><a href="#"> crispromax00@gmail.com</a></p>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h3>Subscribe</h3>
@@ -49,9 +49,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="company-name">All Rights Reserved. &copy; 2018 <a href="#">Yamifood Restaurant</a>
+                    <p class="company-name">All Rights Reserved. &copy; 2024 <a href="#">food Restaurant</a>
                         Design By :
-                        <a href="https://html.design/">html design</a>
+                        <a href="https://html.design/">cristofer payan</a>
                     </p>
                 </div>
             </div>

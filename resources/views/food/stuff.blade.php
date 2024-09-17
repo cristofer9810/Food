@@ -42,39 +42,9 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6">
                     <div class="our-team">
-                        <img src="{{ asset('inicio/images/stuff-img-01.jpg') }}">
+                        <img src="{{ asset('inicio/img/cristofer.jpg') }}">
                         <div class="team-content">
-                            <h3 class="title">Williamson</h3>
-                            <span class="post">Web Developer</span>
-                            <ul class="social">
-                                <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6">
-                    <div class="our-team">
-                        <img src="{{ asset('inicio/images/stuff-img-02.jpg') }}">
-                        <div class="team-content">
-                            <h3 class="title">Kristiana</h3>
-                            <span class="post">Web Designer</span>
-                            <ul class="social">
-                                <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6">
-                    <div class="our-team">
-                        <img src="{{ asset('inicio/images/stuff-img-02.jpg') }}">
-                        <div class="team-content">
-                            <h3 class="title">Steve Thomas</h3>
+                            <h3 class="title">Cristofer payan</h3>
                             <span class="post">Web Developer</span>
                             <ul class="social">
                                 <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
@@ -106,7 +76,8 @@
                         <div class="carousel-inner mt-4">
                             <div class="carousel-item text-center active">
                                 <div class="img-box p-1 border rounded-circle m-auto">
-                                    <img class="d-block w-100 rounded-circle" src="images/profile-1.jpg" alt="">
+                                    <img class="d-block w-100 rounded-circle"
+                                        src="{{ asset('inicio/images/profile-1.jpg') }}" alt="">
                                 </div>
                                 <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Paul
                                         Mitchel</strong></h5>
@@ -118,7 +89,8 @@
                             </div>
                             <div class="carousel-item text-center">
                                 <div class="img-box p-1 border rounded-circle m-auto">
-                                    <img class="d-block w-100 rounded-circle" src="images/profile-3.jpg" alt="">
+                                    <img class="d-block w-100 rounded-circle"
+                                        src="{{ asset('inicio/images/profile-3.jpg') }}" alt="">
                                 </div>
                                 <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Steve
                                         Fonsi</strong></h5>
@@ -130,7 +102,8 @@
                             </div>
                             <div class="carousel-item text-center">
                                 <div class="img-box p-1 border rounded-circle m-auto">
-                                    <img class="d-block w-100 rounded-circle" src="images/profile-7.jpg" alt="">
+                                    <img class="d-block w-100 rounded-circle"
+                                        src="{{ asset('inicio/images/profile-7.jpg') }}" alt="">
                                 </div>
                                 <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Daniel
                                         vebar</strong></h5>
@@ -165,7 +138,7 @@
                     <div class="overflow-hidden">
                         <h4>Phone</h4>
                         <p class="lead">
-                            +01 123-456-4590
+                            +57 314 265 9038
                         </p>
                     </div>
                 </div>
@@ -174,7 +147,7 @@
                     <div class="overflow-hidden">
                         <h4>Email</h4>
                         <p class="lead">
-                            yourmail@gmail.com
+                            crispromax00@gmail.com
                         </p>
                     </div>
                 </div>
@@ -183,7 +156,7 @@
                     <div class="overflow-hidden">
                         <h4>Location</h4>
                         <p class="lead">
-                            800, Lorem Street, US
+                            diagonal 146 # 136a59
                         </p>
                     </div>
                 </div>

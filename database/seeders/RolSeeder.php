@@ -89,8 +89,6 @@ class RolSeeder extends Seeder
             'description' => 'Eliminar posts'
         ])->syncRoles([$role1, $role2]);
 
-
-
         Permission::create([
             'name' => 'admin.saucers.index',
             'description' => 'Ver listado de platillos'
@@ -107,5 +105,24 @@ class RolSeeder extends Seeder
             'name' => 'admin.saucers.destroy',
             'description' => 'Eliminar platillos'
         ])->syncRoles([$role1, $role2]);
+
+        Permission::create([
+            'name' => 'admin.views.index',
+            'description' => 'Ver listado de galeria'
+        ])->syncRoles([$role1, $role2]);
+        Permission::create([
+            'name' => 'admin.views.create',
+            'description' => 'Crear Imagen'
+        ])->syncRoles([$role1, $role2]);
+        Permission::create([
+            'name' => 'admin.views.edit',
+            'description' => 'Editar Imagen'
+        ])->syncRoles([$role1, $role2]);
+        Permission::create([
+            'name' => 'admin.views.destroy',
+            'description' => 'Eliminar Imagen'
+        ])->syncRoles([$role1, $role2]);
     }
+
+
 }

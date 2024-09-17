@@ -24,7 +24,7 @@
                             <h1 class="m-b-20"><strong>Bienvenidos a <br>Food Fast comidas rápidas</strong></h1>
                             <p class="m-b-40">Aquí encontraras la mejor y más extravagantes hamburguesas <br>
                                 Que jamas hallas comido entre otros platos y más, que esperas? ¡¡ordena ahora!!.</p>
-                            <p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#"
+                            <p><a class="btn btn-lg btn-circle btn-outline-new-white" href="{{ route('food.reservation') }}"
                                     style="color: white;">Reservar</a></p>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                             <h1 class="m-b-20"><strong>Bienvenidos a <br>Food Fast comidas rápidas</strong></h1>
                             <p class="m-b-40">Aquí encontraras la mejor y más extravagantes hamburguesas <br>
                                 Que jamas hallas comido entre otros platos y más, que esperas? ¡¡ordena ahora!!.</p>
-                            <p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#"
+                            <p><a class="btn btn-lg btn-circle btn-outline-new-white" href="{{ route('food.reservation') }}"
                                     style="color: white;">Reservar</a></p>
                         </div>
                     </div>
@@ -106,142 +106,6 @@
     </div>
     <!-- End QT -->
 
-    <!-- Start Menu -->
-    {{-- *************************************************
-                 aqui vendra el menu de mi aplicaccion
-       ******************************************************** --}}
-
-    <div class="menu-box">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="heading-title text-center">
-                        <h2>Menu especial</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="special-menu text-center">
-                        <div class="button-group filter-button-group">
-                            <button class="active" data-filter="*">Todo</button>
-                            <button data-filter=".drinks">Bebidas</button>
-                            <button data-filter=".lunch">Almuerzo</button>
-                            <button data-filter=".dinner">Otros</button>
-                            {{-- la variable data-filter esta en el primer div especificando el grupo al que pertenecen, esto hace que se ordenen en nuestro front
-                            cambien segun lo escogido --}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row special-list">
-                {{-- aqui esta la variable a cambiar cuando ↓↓↓↓↓ tenga hecho la BD de los pedidos a pedir XD --}}
-                <div class="col-lg-4 col-md-6 special-grid drinks">
-                    <div class="gallery-single fix">
-                        <img src="{{ asset('inicio/images/img-01.jpg') }}" class="img-fluid" alt="Image">
-                        <div class="why-text">
-                            <h4>Special Drinks 1</h4>
-                            <p>Sed id magna vitae eros sagittis euismod.</p>
-                            <h5> $7.79</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 special-grid drinks">
-                    <div class="gallery-single fix">
-                        <img src="{{ asset('inicio/images/img-02.jpg') }}" class="img-fluid" alt="Image">
-                        <div class="why-text">
-                            <h4>Special Drinks 2</h4>
-                            <p>Sed id magna vitae eros sagittis euismod.</p>
-                            <h5> $9.79</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 special-grid drinks">
-                    <div class="gallery-single fix">
-                        <img src="{{ asset('inicio/images/img-03.jpg') }}" class="img-fluid" alt="Image">
-                        <div class="why-text">
-                            <h4>Special Drinks 3</h4>
-                            <p>Sed id magna vitae eros sagittis euismod.</p>
-                            <h5> $10.79</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 special-grid lunch">
-                    <div class="gallery-single fix">
-                        <img src="{{ asset('inicio/images/img-04.jpg') }}" class="img-fluid" alt="Image">
-                        <div class="why-text">
-                            <h4>Special Lunch 1</h4>
-                            <p>Sed id magna vitae eros sagittis euismod.</p>
-                            <h5> $15.79</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 special-grid lunch">
-                    <div class="gallery-single fix">
-                        <img src="{{ asset('inicio/images/img-05.jpg') }}" class="img-fluid" alt="Image">
-                        <div class="why-text">
-                            <h4>Special Lunch 2</h4>
-                            <p>Sed id magna vitae eros sagittis euismod.</p>
-                            <h5> $18.79</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 special-grid lunch">
-                    <div class="gallery-single fix">
-                        <img src="{{ asset('inicio/images/img-06.jpg') }}" class="img-fluid" alt="Image">
-                        <div class="why-text">
-                            <h4>Special Lunch 3</h4>
-                            <p>Sed id magna vitae eros sagittis euismod.</p>
-                            <h5> $20.79</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 special-grid dinner">
-                    <div class="gallery-single fix">
-                        <img src="{{ asset('inicio/images/img-07.jpg') }}" class="img-fluid" alt="Image">
-                        <div class="why-text">
-                            <h4>Special Dinner 1</h4>
-                            <p>Sed id magna vitae eros sagittis euismod.</p>
-                            <h5> $25.79</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 special-grid dinner">
-                    <div class="gallery-single fix">
-                        <img src="{{ asset('inicio/images/img-08.jpg') }}" class="img-fluid" alt="Image">
-                        <div class="why-text">
-                            <h4>Special Dinner 2</h4>
-                            <p>Sed id magna vitae eros sagittis euismod.</p>
-                            <h5> $22.79</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 special-grid dinner">
-                    <div class="gallery-single fix">
-                        <img src="{{ asset('inicio/images/img-09.jpg') }}" class="img-fluid" alt="Image">
-                        <div class="why-text">
-                            <h4>Special Dinner 3</h4>
-                            <p>Sed id magna vitae eros sagittis euismod.</p>
-                            <h5> $24.79</h5>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- End Menu -->
-
     <!-- Start Gallery -->
     <div class="gallery-box">
         <div class="container-fluid">
@@ -254,43 +118,27 @@
                 </div>
             </div>
             <div class="tz-gallery">
+
+
                 <div class="row">
-                    <div class="col-sm-12 col-md-4 col-lg-4">
-                        <a class="lightbox" href="{{ asset('inicio/images/gallery-img-01.jpg') }}">
-                            <img class="img-fluid" src="{{ asset('inicio/images/gallery-img-01.jpg') }}"
-                                alt="Gallery Images">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-4">
-                        <a class="lightbox" href="{{ asset('inicio/images/gallery-img-02.jpg') }}">
-                            <img class="img-fluid" src="{{ asset('inicio/images/gallery-img-02.jpg') }}"
-                                alt="Gallery Images">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-4">
-                        <a class="lightbox" href="{{ asset('inicio/images/gallery-img-03.jpg') }}">
-                            <img class="img-fluid" src="{{ asset('inicio/images/gallery-img-03.jpg') }}"
-                                alt="Gallery Images">
-                        </a>
-                    </div>
-                    <div class="col-sm-12 col-md-4 col-lg-4">
-                        <a class="lightbox" href="{{ asset('inicio/images/gallery-img-04.jpg') }}">
-                            <img class="img-fluid" src="{{ asset('inicio/images/gallery-img-04.jpg') }}"
-                                alt="Gallery Images">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-4">
-                        <a class="lightbox" href="{{ asset('inicio/images/gallery-img-05.jpg') }}">
-                            <img class="img-fluid" src="{{ asset('inicio/images/gallery-img-05.jpg') }}"
-                                alt="Gallery Images">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-4">
-                        <a class="lightbox" href="{{ asset('inicio/images/gallery-img-06.jpg') }}">
-                            <img class="img-fluid" src="{{ asset('inicio/images/gallery-img-06.jpg') }}"
-                                alt="Gallery Images">
-                        </a>
-                    </div>
+                    @foreach ($views as $view)
+                        @if ($view->gallery)
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                <a class="lightbox" href="{{ Storage::url($view->gallery->url) }}">
+                                    <img class="img-fluid" src="{{ Storage::url($view->gallery->url) }}"
+                                       data-caption="{{$view->name}} alt="Gallery Images">
+                                </a>
+                            </div>
+                        @else
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                <a class="lightbox" href="{{ Storage::url($view->gallery->url) }}">
+                                    <img class="img-fluid" src="{{ Storage::url($view->gallery->url) }}"
+                                       data-caption="{{$view->name}} alt="Gallery Images">
+                                </a>
+                            </div>
+                        @endif
+                    @endforeach
+
                 </div>
             </div>
         </div>
@@ -376,7 +224,7 @@
                     <div class="overflow-hidden">
                         <h4>Phone</h4>
                         <p class="lead">
-                            +01 123-456-4590
+                            +57 314 265 9038
                         </p>
                     </div>
                 </div>
@@ -385,7 +233,7 @@
                     <div class="overflow-hidden">
                         <h4>Email</h4>
                         <p class="lead">
-                            yourmail@gmail.com
+                            crispromax00@gmail.com
                         </p>
                     </div>
                 </div>
@@ -394,7 +242,7 @@
                     <div class="overflow-hidden">
                         <h4>Location</h4>
                         <p class="lead">
-                            800, Lorem Street, US
+                            diagonal 146 # 136a59
                         </p>
                     </div>
                 </div>

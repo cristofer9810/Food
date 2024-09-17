@@ -1,51 +1,54 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
+    <x-authentication-card>
         <x-slot name="logo">
-
+            <x-authentication-card-logo />
         </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
+        <x-validation-errors class="mb-4" />
 
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
                 {{ session('status') }}
             </div>
         @endif
-        <div class="text-center text-white py-7">
-            <i class="far fa-user-circle fa-7x"></i>
+
+        <div class="text-center text-white py-5">
+
+            <img src="{{ asset('inicio/img/food logo.png') }}" alt="">
+
         </div>
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
             <div>
-                <x-jet-label for="email" class="text-white" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-label for="email" class="text-white" value="{{ __('Email') }}" />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password" class="text-white" value="{{ __('Contraseña') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                <x-label for="password" class="text-white" value="{{ __('Password') }}" />
+                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
-                    <x-jet-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-blue-500">{{ __('Recordar mi usuario') }}</span>
+                    <x-checkbox id="remember_me" name="remember" />
+                    <span class="ml-2 text-sm text-white">{{ __('Remember me') }}</span>
                 </label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-blue-500 hover:text-red-900" href="{{ route('password.request') }}">
-                        {{ __('¿Olvidaste tu contraseña?') }}
+                    <a class="underline text-sm text-white hover:text-red-400 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                        {{ __('Forgot your password?') }}
                     </a>
                 @endif
 
-                <x-jet-button class="ml-4">
-                    {{ __('Ingresar') }}
-                </x-jet-button>
+                <x-button class="ml-4">
+                    {{ __('Log in') }}
+                </x-button>
             </div>
         </form>
-    </x-jet-authentication-card>
+    </x-authentication-card>
 </x-guest-layout>

@@ -20,7 +20,7 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Gallery</h1>
+                    <h1>Galeria</h1>
                 </div>
             </div>
         </div>
@@ -33,49 +33,33 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="heading-title text-center">
-                        <h2>Gallery</h2>
+                        <h2>Galeria</h2>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
                     </div>
                 </div>
             </div>
             <div class="tz-gallery">
+
+
                 <div class="row">
-                    <div class="col-sm-12 col-md-4 col-lg-4">
-                        <a class="lightbox" href="{{ asset('inicio/images/gallery-img-01.jpg') }}">
-                            <img class="img-fluid" src="{{ asset('inicio/images/gallery-img-01.jpg') }}"
-                                alt="Gallery Images">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-4">
-                        <a class="lightbox" href="{{ asset('inicio/images/gallery-img-02.jpg') }}">
-                            <img class="img-fluid" src="{{ asset('inicio/images/gallery-img-02.jpg') }}"
-                                alt="Gallery Images">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-4">
-                        <a class="lightbox" href="{{ asset('inicio/images/gallery-img-03.jpg') }}">
-                            <img class="img-fluid" src="{{ asset('inicio/images/gallery-img-03.jpg') }}"
-                                alt="Gallery Images">
-                        </a>
-                    </div>
-                    <div class="col-sm-12 col-md-4 col-lg-4">
-                        <a class="lightbox" href="{{ asset('inicio/images/gallery-img-04.jpg') }}">
-                            <img class="img-fluid" src="{{ asset('inicio/images/gallery-img-04.jpg') }}"
-                                alt="Gallery Images">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-4">
-                        <a class="lightbox" href="{{ asset('inicio/images/gallery-img-05.jpg') }}">
-                            <img class="img-fluid" src="{{ asset('inicio/images/gallery-img-05.jpg') }}"
-                                alt="Gallery Images">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-4">
-                        <a class="lightbox" href="{{ asset('inicio/images/gallery-img-06.jpg') }}">
-                            <img class="img-fluid" src="{{ asset('inicio/images/gallery-img-06.jpg') }}"
-                                alt="Gallery Images">
-                        </a>
-                    </div>
+                    @foreach ($views as $view)
+                        @if ($view->gallery)
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                <a class="lightbox" href="{{ Storage::url($view->gallery->url) }}">
+                                    <img class="img-fluid" src="{{ Storage::url($view->gallery->url) }}"
+                                       data-caption="{{$view->name}} alt="Gallery Images">
+                                </a>
+                            </div>
+                        @else
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                <a class="lightbox" href="{{ Storage::url($view->gallery->url) }}">
+                                    <img class="img-fluid" src="{{ Storage::url($view->gallery->url) }}"
+                                       data-caption="{{$view->name}} alt="Gallery Images">
+                                </a>
+                            </div>
+                        @endif
+                    @endforeach
+
                 </div>
             </div>
         </div>
@@ -99,7 +83,8 @@
                         <div class="carousel-inner mt-4">
                             <div class="carousel-item text-center active">
                                 <div class="img-box p-1 border rounded-circle m-auto">
-                                    <img class="d-block w-100 rounded-circle" src="images/profile-1.jpg" alt="">
+                                    <img class="d-block w-100 rounded-circle"
+                                        src="{{ asset('inicio/images/profile-1.jpg') }}" alt="">
                                 </div>
                                 <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Paul
                                         Mitchel</strong></h5>
@@ -111,7 +96,8 @@
                             </div>
                             <div class="carousel-item text-center">
                                 <div class="img-box p-1 border rounded-circle m-auto">
-                                    <img class="d-block w-100 rounded-circle" src="images/profile-3.jpg" alt="">
+                                    <img class="d-block w-100 rounded-circle"
+                                        src="{{ asset('inicio/images/profile-3.jpg') }}" alt="">
                                 </div>
                                 <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Steve
                                         Fonsi</strong></h5>
@@ -123,7 +109,8 @@
                             </div>
                             <div class="carousel-item text-center">
                                 <div class="img-box p-1 border rounded-circle m-auto">
-                                    <img class="d-block w-100 rounded-circle" src="images/profile-7.jpg" alt="">
+                                    <img class="d-block w-100 rounded-circle"
+                                        src="{{ asset('inicio/images/profile-7.jpg') }}" alt="">
                                 </div>
                                 <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Daniel
                                         vebar</strong></h5>
@@ -149,8 +136,8 @@
     </div>
     <!-- End Customer Reviews -->
 
-    <!-- Start Contact info -->
-    <div class="contact-imfo-box">
+     <!-- Start Contact info -->
+     <div class="contact-imfo-box">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -158,7 +145,7 @@
                     <div class="overflow-hidden">
                         <h4>Phone</h4>
                         <p class="lead">
-                            +01 123-456-4590
+                            +57 314 265 9038
                         </p>
                     </div>
                 </div>
@@ -167,7 +154,7 @@
                     <div class="overflow-hidden">
                         <h4>Email</h4>
                         <p class="lead">
-                            yourmail@gmail.com
+                            crispromax00@gmail.com
                         </p>
                     </div>
                 </div>
@@ -176,7 +163,7 @@
                     <div class="overflow-hidden">
                         <h4>Location</h4>
                         <p class="lead">
-                            800, Lorem Street, US
+                            diagonal 146 # 136a59
                         </p>
                     </div>
                 </div>
@@ -188,7 +175,7 @@
     <!-- Start Footer -->
 
     @livewire('footer')
-	
+
     <!-- End Footer -->
 
     @livewire('js')

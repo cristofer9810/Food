@@ -19,7 +19,7 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Reservation</h1>
+                    <h1>Reservacion</h1>
                 </div>
             </div>
         </div>
@@ -32,37 +32,48 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="heading-title text-center">
-                        <h2>Reservation</h2>
+                        <h2>Reservacion</h2>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-sm-12 col-xs-12">
+                    @if (session('info'))
+                        <div class="alert alert-success">
+                            <strong>{{ session('info') }}</strong>
+                        </div>
+                    @endif
                     <div class="contact-block">
-                        <form id="contactForm">
+                        <form action="{{ route('reservation.store') }}" method="POST">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3>Book a table</h3>
+                                    <h3>Completar para reservar</h3>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input id="input_date" class="datepicker picker__input form-control"
-                                                name="date" type="text" value="" equired data-error="Please enter Date">
+                                            <input id="name" placeholder="Nombres"
+                                                class="datepicker picker__input form-control" name="name" required
+                                                type="text" value="" equired data-error="ingrese el nombre">
+                                            <div class="help-block with-errors"></div>
+                                            @error('name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="">Cuando:</label>
+                                            <input id="input_time" name="date1"
+                                                class="time form-control picker__input" type="date" required>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input id="input_time" class="time form-control picker__input" required
-                                                data-error="Please enter time">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <select class="custom-select d-block form-control" id="person" required
-                                                data-error="Please select Person">
-                                                <option disabled selected>Select Person*</option>
+                                            <select class="custom-select d-block form-control" name="person"
+                                                id="person" required data-error="Ingrese en numero de personas">
+                                                <option disabled selected>mesa para: *</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -76,34 +87,43 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <h3>Contact Details</h3>
+                                    <h3>Informacion de contacto</h3>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="name" name="name"
-                                                placeholder="Your Name" required data-error="Please enter your name">
+                                            <input type="text" class="form-control" id="name_last" name="name_last"
+                                                placeholder="Apellidos" required
+                                                data-error="Por favor ingrese apellidos ">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" placeholder="Your Email" id="email"
+                                            <label class="">Hora:</label>
+                                            <input id="input_time" name="time1"
+                                                class="time form-control picker__input" type="time" required>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Email" id="email"
                                                 class="form-control" name="email" required
-                                                data-error="Please enter your email">
+                                                data-error="por favor ingresar tu email">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" placeholder="Your Numbar" id="phone"
-                                                class="form-control" name="phone" required
-                                                data-error="Please enter your Numbar">
+                                            <input type="text" placeholder="Telefono" id="phone"
+                                                class="form-control" name="telefono" required
+                                                data-error="Por favor ingresa tu celular o Telefono">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="submit-button text-center">
-                                        <button class="btn btn-common" id="submit" type="submit">Book Table</button>
+                                        <button class="btn btn-common" id="submit" type="submit">Reservar</button>
                                         <div id="msgSubmit" class="h3 text-center hidden"></div>
                                         <div class="clearfix"></div>
                                     </div>
@@ -117,8 +137,8 @@
     </div>
     <!-- End Reservation -->
 
-    <!-- Start Customer Reviews -->
-    <div class="customer-reviews-box">
+     <!-- Start Customer Reviews -->
+     <div class="customer-reviews-box">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -134,7 +154,8 @@
                         <div class="carousel-inner mt-4">
                             <div class="carousel-item text-center active">
                                 <div class="img-box p-1 border rounded-circle m-auto">
-                                    <img class="d-block w-100 rounded-circle" src="images/profile-1.jpg" alt="">
+                                    <img class="d-block w-100 rounded-circle"
+                                        src="{{ asset('inicio/images/profile-1.jpg') }}" alt="">
                                 </div>
                                 <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Paul
                                         Mitchel</strong></h5>
@@ -146,7 +167,8 @@
                             </div>
                             <div class="carousel-item text-center">
                                 <div class="img-box p-1 border rounded-circle m-auto">
-                                    <img class="d-block w-100 rounded-circle" src="images/profile-3.jpg" alt="">
+                                    <img class="d-block w-100 rounded-circle"
+                                        src="{{ asset('inicio/images/profile-3.jpg') }}" alt="">
                                 </div>
                                 <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Steve
                                         Fonsi</strong></h5>
@@ -158,7 +180,8 @@
                             </div>
                             <div class="carousel-item text-center">
                                 <div class="img-box p-1 border rounded-circle m-auto">
-                                    <img class="d-block w-100 rounded-circle" src="images/profile-7.jpg" alt="">
+                                    <img class="d-block w-100 rounded-circle"
+                                        src="{{ asset('inicio/images/profile-7.jpg') }}" alt="">
                                 </div>
                                 <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Daniel
                                         vebar</strong></h5>
@@ -193,7 +216,7 @@
                     <div class="overflow-hidden">
                         <h4>Phone</h4>
                         <p class="lead">
-                            +01 123-456-4590
+                            +57 314 265 9038
                         </p>
                     </div>
                 </div>
@@ -202,7 +225,7 @@
                     <div class="overflow-hidden">
                         <h4>Email</h4>
                         <p class="lead">
-                            yourmail@gmail.com
+                            crispromax00@gmail.com
                         </p>
                     </div>
                 </div>
@@ -211,7 +234,7 @@
                     <div class="overflow-hidden">
                         <h4>Location</h4>
                         <p class="lead">
-                            800, Lorem Street, US
+                            diagonal 146 # 136a59
                         </p>
                     </div>
                 </div>
@@ -225,7 +248,7 @@
     <!-- End Footer -->
 
     @livewire('js')
-	
+
 </body>
 
 </html>

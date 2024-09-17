@@ -11,6 +11,8 @@ use App\Http\Controllers\StuffControlller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserSettingsController;
+use App\Http\Controllers\WelcomeController;
+use App\Mail\Reservation;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +25,7 @@ use App\Http\Controllers\UserSettingsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WelcomeController::class, 'index']);
 
 /* Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -43,6 +43,8 @@ Route::get('abouts', [AboutControlller::class, 'index'])->name('food.about');
 
 Route::get('reservation', [ReservationControlller::class, 'index'])->name('food.reservation');
 
+Route::post('reservation', [ReservationControlller::class, 'store'])->name('reservation.store');
+
 Route::get('stuff', [StuffControlller::class, 'index'])->name('food.stuff');
 
 Route::get('gallery', [GalleryControlller::class, 'index'])->name('food.gallery');
@@ -56,6 +58,8 @@ Route::get('category/{category}', [DetailsController::class, 'category'])->name(
 Route::get('tag/{tag}', [DetailsController::class, 'tag'])->name('food.tag');
 
 Route::get('contact', [ContactController::class, 'index'])->name('food.contact');
+
+Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('map', [UserSettingsController::class, 'index'])->name('map');
 
