@@ -44,7 +44,7 @@
             @isset($view->gallery)
                 <img id="picture" src="{{ Storage::url($view->gallery->url) }}">
             @else
-                <img id="picture" src="https://cdn.pixabay.com/photo/2022/02/11/21/41/cheese-7008088_960_720.jpg">
+                <img id="picture" width="200" height="200" src="https://cdn.pixabay.com/photo/2022/02/11/21/41/cheese-7008088_960_720.jpg">
             @endisset
         </div>
 

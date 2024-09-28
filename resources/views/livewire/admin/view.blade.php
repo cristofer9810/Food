@@ -27,8 +27,8 @@
                                 @if ($view->gallery)
                                     <img id="picture" src="{{ Storage::url($view->gallery->url) }}" width="150px" height="150px">
                                 @else
-                                    <img class="object-cover object-center w-full h-80"
-                                        src="https://cdn.pixabay.com/photo/2021/03/02/13/04/laptop-6062423_960_720.jpg">
+                                    <img id="picture" width="150px" height="150px"
+                                        src="https://cdn.pixabay.com/photo/2022/02/11/21/41/cheese-7008088_960_720.jpg">
                                 @endif
 
                             </div>
